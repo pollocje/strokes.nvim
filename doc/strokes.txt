@@ -1,0 +1,56 @@
+*strokes.txt*    A keystroke odometer for your buffers
+
+==============================================================================
+CONTENTS                                                       *strokes*
+
+    1. Introduction .......... |strokes-introduction|
+    2. Commands .............. |strokes-commands|
+    3. Configuration .......... |strokes-configuration|
+    4. Statusline ............. |strokes-statusline|
+
+==============================================================================
+1. Introduction                                    *strokes-introduction*
+
+strokes.nvim counts every keypress you make, and remembers which buffer
+you were in when you made it. Switch buffers and it keeps a separate
+tally for each one; come back later and that buffer's count picks up
+where it left off. Data is bucketed by day and persisted to disk, so you
+can see today's, this week's, this month's, and all-time totals -
+overall and per buffer.
+
+==============================================================================
+2. Commands                                             *strokes-commands*
+
+:StrokesStats                                                *:StrokesStats*
+    Open a floating window with your current rank, a 14-day sparkline,
+    today/week/month/all-time totals, and your top buffers by keypress
+    count. Press `q` or `<Esc>` to close it.
+
+:StrokesSave                                                  *:StrokesSave*
+    Force an immediate write of the in-memory counts to disk. Normally
+    this happens automatically every |g:strokes_save_every| keypresses,
+    and on VimLeavePre / FocusLost.
+
+==============================================================================
+3. Configuration                                    *strokes-configuration*
+
+Call `require('strokes').setup{}` to configure. Defaults shown: >lua
+
+    require('strokes').setup({
+      -- keypresses to accumulate before flushing to disk
+      save_every = 50,
+      -- filetypes to exclude from counting
+      ignore_filetypes = {},
+    })
+<
+Calling |setup()| is optional - the plugin starts tracking with default
+settings as soon as it loads.
+
+==============================================================================
+4. Statusline                                        *strokes-statusline*
+
+`require('strokes').statusline()` returns a string like `"⌨ 128"` for the
+current buffer's keypress count today (empty string if zero), suitable
+for dropping into a lualine component or statusline expression.
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
