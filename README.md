@@ -1,13 +1,14 @@
 # strokes.nvim
 
-A keystroke odometer for your buffers.
-
-`strokes.nvim` counts every key you press and remembers which buffer you
-were in when you pressed it. Switch buffers and it keeps a separate tally
-for each one; come back later and that buffer's count picks up right
-where it left off. Everything is bucketed by day and saved to disk, so
-you can see today's, this week's, this month's, and all-time totals -
-both overall and per buffer.
+I love a good incremental game - there's something about a number going
+up that just works on my brain. So I figured, why not point that at
+something I'm already doing all day: typing. strokes.nvim counts every
+key you press and remembers which buffer you were in when you pressed
+it. Switch buffers and it keeps a separate tally for each one; come back
+later and that buffer's count picks up right where it left off.
+Everything is bucketed by day and saved to disk, so you can check
+today's, this week's, this month's, and all-time totals - overall and
+per buffer. No purpose to it beyond that. Number go up.
 
 ```
   strokes.nvim
@@ -34,7 +35,7 @@ both overall and per buffer.
 
 ```lua
 {
-  "youruser/strokes.nvim",
+  "pollocje/strokes.nvim",
   event = "VeryLazy", -- tracking should start early, don't lazy-load on cmd
   opts = {},
 }
@@ -44,7 +45,7 @@ both overall and per buffer.
 
 ```lua
 use({
-  "youruser/strokes.nvim",
+  "pollocje/strokes.nvim",
   config = function()
     require("strokes").setup({})
   end,
@@ -52,7 +53,8 @@ use({
 ```
 
 Calling `setup()` is optional - tracking starts with default settings as
-soon as the plugin loads.
+soon as the plugin loads. Zero config needed to start watching the
+number go up.
 
 ## Commands
 
