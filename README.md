@@ -1,14 +1,10 @@
 # strokes.nvim
 
-I love a good incremental game - there's something about a number going
-up that just works on my brain. So I figured, why not point that at
-something I'm already doing all day: typing. strokes.nvim counts every
-key you press and remembers which buffer you were in when you pressed
-it. Switch buffers and it keeps a separate tally for each one; come back
-later and that buffer's count picks up right where it left off.
-Everything is bucketed by day and saved to disk, so you can check
-today's, this week's, this month's, and all-time totals - overall and
-per buffer. No purpose to it beyond that. Number go up.
+I like when the number go up. I really like weird apps like Procrastitracker and such.
+I thought I'd try my hand at making something simple in nvim and I thought maybe we could make number go up.
+
+So here it is! When you type, the number go up.
+Ty
 
 ```
   strokes.nvim
